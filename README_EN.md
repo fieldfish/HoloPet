@@ -14,7 +14,7 @@ HoloPet is an open-source desktop companion built for Raspberry Pi 5. It combine
 
 Current public version: **v0.9.0 Public Preview**
 
-![HoloPet compact-base V3 assembly preview](mechanical/compact_base_v3/preview/assembly_with_components.png)
+![HoloPet compact-base V3.1 assembly preview](mechanical/compact_base_v3_1/preview/assembly_with_components.png)
 
 ## Highlights
 
@@ -84,7 +84,7 @@ See [Architecture](docs/ARCHITECTURE.md) for the C++/Python responsibility bound
 | Compact-base CAD/STL | Parametric export and mesh checks passed |
 | Physical assembly and optical result | **WAITING** for first-article fit and projection inspection |
 
-The project deliberately separates code-level validation, real-device validation, and physical/mechanical validation. See [Mechanical design](mechanical/compact_base_v3/README.md) for dimensions and printing boundaries; V2 remains available as the historical baseline.
+The project deliberately separates code-level validation, real-device validation, and physical/mechanical validation. See [Mechanical design](mechanical/compact_base_v3_1/README.md) for dimensions and printing boundaries; V2/V3 remain available as historical baselines.
 
 ## Repository layout
 
@@ -96,7 +96,7 @@ config/                      Credential-free example configuration
 scripts/                     Build, deployment, service, and local-model scripts
 systemd/                     Raspberry Pi systemd service templates
 tests/                       C++ and protocol tests
-mechanical/compact_base_v3/  Current parametric enclosure and printable STL files (V2 historical baseline)
+mechanical/compact_base_v3_1/Current parametric enclosure and printable STL files (V2/V3 historical baselines)
 docs/                        Architecture, UI, hardware, and privacy documentation
 ```
 
@@ -153,7 +153,7 @@ See [Privacy and data boundaries](docs/PRIVACY.md) and the [Security policy](SEC
 
 ## Mechanical printing
 
-Printable parts are under `mechanical/compact_base_v3/stl/`. Print `fit_test/screen_body_fit_coupon.stl` first to verify the display, main body, and upper collar before ordering the complete set.
+Printable parts are under `mechanical/compact_base_v3_1/stl/`. Print `fit_test/screen_body_fit_coupon.stl` first to verify the display, main body, and upper collar before ordering the complete set.
 
 Reference assembly STL files illustrate the relationship between the display, Raspberry Pi, audio interface, speakers, rotary control, and glass dome. They are **not printable parts and must not be sent to a printing vendor as production files**.
 

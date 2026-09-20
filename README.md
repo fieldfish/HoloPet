@@ -14,7 +14,7 @@ HoloPet 是一个面向 Raspberry Pi 5 的开源桌面宠物项目。它把圆�
 
 当前公开版本：**v0.9.0 Public Preview**
 
-![HoloPet 紧凑底座 V3 装配预览](mechanical/compact_base_v3/preview/assembly_with_components.png)
+![HoloPet 紧凑底座 V3.1 装配预览](mechanical/compact_base_v3_1/preview/assembly_with_components.png)
 
 ## 主要能力
 
@@ -84,7 +84,7 @@ C++ 与 Python 的职责边界、消息顺序和主要模块见 [架构说明](d
 | 紧凑底座 CAD/STL | 参数化导出与网格检查通过 |
 | 紧凑底座实物装配与光学效果 | **WAITING**，首件装配后确认 |
 
-本仓库坚持区分“代码通过”“实机通过”和“机械实物通过”。机械尺寸与打印边界见 [机械设计说明](mechanical/compact_base_v3/README.md)；V2 仍作为历史基线保留。
+本仓库坚持区分“代码通过”“实机通过”和“机械实物通过”。机械尺寸与打印边界见 [机械设计说明](mechanical/compact_base_v3_1/README.md)；V2/V3 仍作为历史基线保留。
 
 ## 目录
 
@@ -96,7 +96,7 @@ config/                      无密钥示例配置
 scripts/                     构建、部署、服务与本地模型脚本
 systemd/                     Raspberry Pi systemd 服务模板
 tests/                       C++ 与协议测试
-mechanical/compact_base_v3/  当前参数化机械设计和可打印 STL（V2 历史基线）
+mechanical/compact_base_v3_1/当前参数化机械设计和可打印 STL（V2/V3 历史基线）
 docs/                        架构、界面、硬件与隐私说明
 ```
 
@@ -153,7 +153,7 @@ ctest --test-dir build-pi --output-on-failure
 
 ## 机械打印
 
-打印文件位于 `mechanical/compact_base_v3/stl/`。建议先打印 `fit_test/screen_body_fit_coupon.stl`，确认屏幕、主筒和顶部收口配合，再打印整套结构件。
+打印文件位于 `mechanical/compact_base_v3_1/stl/`。建议先打印 `fit_test/screen_body_fit_coupon.stl`，确认屏幕、主筒和顶部收口配合，再打印整套结构件。
 
 参考总成 STL 用于查看屏幕、Pi、声卡、扬声器、旋钮和玻璃罩的装配关系，**不可当作打印件发送给商家**。
 
