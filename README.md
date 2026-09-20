@@ -10,6 +10,8 @@
 
 HoloPet 是一个面向 Raspberry Pi 5 的开源桌面宠物项目。它把圆形屏幕、EC11 旋钮、USB 麦克风与扬声器、语音对话、离线功能和可打印外壳组合在同一套软硬件架构中。
 
+> 一个具备语音感知、模型路由、受控工具调用与设备执行闭环的实体 AI Agent。
+
 当前公开版本：**v0.9.0 Public Preview**
 
 ![HoloPet 紧凑底座装配预览](mechanical/compact_base_v2/preview/assembly_with_components.png)
@@ -24,6 +26,26 @@ HoloPet 是一个面向 Raspberry Pi 5 的开源桌面宠物项目。它把圆�
 - 云端与本地模型：支持 OpenAI-compatible 接口、DeepSeek 配置示例和本地 OpenAI-compatible 服务。
 - 语音链路：ALSA 录音/播放、火山引擎流式 ASR 与 OpenAI-compatible ASR/TTS 适配器。
 - 紧凑机械设计：126 mm 最大外径，包含圆屏、Pi 5、双扬声器、75 mm 声卡空间、旋钮和玻璃罩收口。
+
+## AI Agent 核心
+
+HoloPet 的 AI 部分不只是把问题转发给聊天模型。`holopet_agentd` 负责组织一轮完整的“理解—决策—执行—反馈”流程，并通过 Unix Socket 把工具请求交给 C++ 设备运行时执行。
+
+```text
+语音输入 → ASR → 模型路由 → Agent 工具循环 → C++ 设备功能
+        → 工具结果 → 最终回答 → 屏幕表情 / 文本 / TTS
+```
+
+| 能力 | 实现 |
+|---|---|
+| 模型路由 | 按问题复杂度选择快速、深度或本地模型；支持用户显式切换，快速模型能力不足时最多升级一次 |
+| 受控工具调用 | 统一目录包含 23 项工具，覆盖定时器、闹钟、时钟、便签、显示模式、AI模式、音量、表情和偏好记忆 |
+| 安全执行 | 工具白名单、严格参数Schema、副作用分级、超时控制以及“删除全部”二次确认 |
+| 有界推理 | 最多4个工具轮次、每轮最多4项工具、整轮最多8次执行，避免无限循环和失控调用 |
+| 设备闭环 | Python Agent生成结构化工具请求，C++执行本地功能并回传结果，再由Agent组织最终回答 |
+| 有限记忆与审计 | 只保存受控偏好；对路由、工具和状态变化进行结构化记录，不默认写入完整语音转写 |
+
+核心实现位于 [`agent/holopet_agentd/agent/`](agent/holopet_agentd/agent/)，模型路由位于 [`router/`](agent/holopet_agentd/router/)，工具目录与策略位于 [`tools/`](agent/holopet_agentd/tools/)；C++侧的工具桥接位于 [`src/features/tool_bridge.hpp`](src/features/tool_bridge.hpp)。
 
 ## 界面
 

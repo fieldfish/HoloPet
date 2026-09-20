@@ -10,6 +10,8 @@
 
 HoloPet is an open-source desktop companion built for Raspberry Pi 5. It combines a round display, an EC11 rotary encoder, USB microphone and speakers, voice interaction, offline utilities, and a printable enclosure in one hardware-software architecture.
 
+> A physical AI Agent with voice perception, model routing, controlled tool use, and a closed device-execution loop.
+
 Current public version: **v0.9.0 Public Preview**
 
 ![HoloPet compact-base assembly preview](mechanical/compact_base_v2/preview/assembly_with_components.png)
@@ -24,6 +26,26 @@ Current public version: **v0.9.0 Public Preview**
 - **Cloud and local models:** OpenAI-compatible endpoints, a DeepSeek configuration example, and local OpenAI-compatible services.
 - **Voice pipeline:** ALSA capture/playback, Volcengine streaming ASR, and OpenAI-compatible ASR/TTS adapters.
 - **Compact mechanical design:** 126 mm maximum outer diameter with a round display, Raspberry Pi 5, two speakers, a 75 mm audio-interface allowance, rotary control, and glass-dome collar.
+
+## AI Agent core
+
+HoloPet does more than forward a prompt to a chat model. `holopet_agentd` coordinates a complete understand-decide-act-feedback turn and sends structured tool requests to the C++ device runtime through a Unix socket.
+
+```text
+Voice → ASR → Model routing → Agent tool loop → C++ device feature
+      → Tool result → Final response → Expression / Text / TTS
+```
+
+| Capability | Implementation |
+|---|---|
+| Model routing | Selects fast, strong, or local models by task complexity; supports explicit user overrides and at most one controlled fast-to-strong escalation |
+| Controlled tool use | A unified 23-tool catalog covers timers, alarms, clock mode, notes, display mode, AI mode, volume, expressions, and bounded preference memory |
+| Safe execution | Allowlisted tools, strict argument schemas, side-effect classification, timeouts, and confirmation for destructive “delete all” operations |
+| Bounded reasoning | At most 4 tool rounds, 4 tools per round, and 8 executions per turn prevent unbounded loops and runaway calls |
+| Device feedback loop | The Python Agent emits a structured request, C++ performs the local action and returns its result, and the Agent then produces the final response |
+| Bounded memory and audit | Stores controlled preferences only; records routing, tool, and state transitions without logging full speech transcripts by default |
+
+The core implementation lives in [`agent/holopet_agentd/agent/`](agent/holopet_agentd/agent/), model routing in [`router/`](agent/holopet_agentd/router/), and tool definitions and policy in [`tools/`](agent/holopet_agentd/tools/). The C++ device bridge is implemented in [`src/features/tool_bridge.hpp`](src/features/tool_bridge.hpp).
 
 ## Interface
 
