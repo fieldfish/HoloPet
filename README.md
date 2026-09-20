@@ -1,5 +1,13 @@
 # HoloPet
 
+<p align="center">
+  <strong>简体中文</strong> · <a href="README_EN.md">English</a>
+</p>
+
+[![CI](https://github.com/fieldfish/HoloPet/actions/workflows/ci.yml/badge.svg)](https://github.com/fieldfish/HoloPet/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/fieldfish/HoloPet?include_prereleases)](https://github.com/fieldfish/HoloPet/releases)
+[![License](https://img.shields.io/github/license/fieldfish/HoloPet)](LICENSE)
+
 HoloPet 是一个面向 Raspberry Pi 5 的开源桌面宠物项目。它把圆形屏幕、EC11 旋钮、USB 麦克风与扬声器、语音对话、离线功能和可打印外壳组合在同一套软硬件架构中。
 
 当前公开版本：**v0.9.0 Public Preview**
