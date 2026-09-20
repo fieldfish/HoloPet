@@ -1,0 +1,23 @@
+{
+  "provider": "fake",
+  "base_url": "",
+  "model": "holopet-default",
+  "api_key_env_name": "HOLOPET_API_KEY",
+  "connect_timeout_ms": 5000,
+  "request_timeout_ms": 30000,
+  "max_output_tokens": 256,
+  "max_history_turns": 8,
+  "max_tool_rounds": 4,
+  "voice": "default",
+  "language": "zh",
+  "sample_rate": 16000,
+  "bit_depth": 16,
+  "channels": 1,
+  "byte_order": "little",
+  "max_audio_bytes": 524288,
+  "stt_inject": {},
+  "prompt_dir": "prompts",
+  "prompt_max_bytes": 65536,
+  "max_response_bytes": 262144,
+  "text_only": false
+}

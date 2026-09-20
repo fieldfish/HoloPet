@@ -1,0 +1,20 @@
+# 模板: 由 scripts/install_service.sh 生成实际 unit (占位符替换)
+# 不硬编码 User=pi / /home/pi/HoloPet
+[Unit]
+Description=HoloPet Local LLM (llama.cpp server, loopback only)
+After=network.target
+
+[Service]
+Type=simple
+User=@APP_USER@
+WorkingDirectory=@PROJECT_DIR@
+EnvironmentFile=/etc/holopet/holopet.env
+ExecStart=@PROJECT_DIR@/scripts/local_model/start_local_model.sh @MODEL_DIR@ @LLAMA_BIN@ 8080 @LLAMA_THREADS@ --foreground
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+# 安全: 仅 loopback (脚本内 --host 127.0.0.1); 日志不含对话正文/密钥
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

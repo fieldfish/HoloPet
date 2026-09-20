@@ -1,0 +1,28 @@
+# agent.yaml — holopet_agentd 配置字段示例
+# schema-only: documented fields, not loaded by the current runtime.
+#
+# 这是示例文件: 不含任何真实 key; 部署时复制为 /etc/holopet/agent.yaml
+# 并按需修改。API key 只通过环境变量注入 (见 api_key_env_name)。
+#
+# 本文件仅用于说明字段，不参与运行时加载。agentd 当前使用 JSON 配置；
+# 启动时通过 --config 指向 config/agent.example.json 或其本地副本。
+
+agent:
+  # 对话行为
+  max_history_turns: 8        # 跨轮 LLM 历史上限 (轮)
+  max_tool_rounds: 4          # 单轮工具回灌上限
+  language: zh                # 语言
+
+audio:
+  sample_rate: 16000          # USB 麦克风采样率
+  bit_depth: 16
+  channels: 1
+  byte_order: little
+  max_audio_bytes: 524288     # 单轮录音上限 (512 KiB)
+
+ipc:
+  # Linux 生产: Unix Domain Socket (临时 socket 不写死路径)
+  uds_path: /run/holopet/agent.sock
+  # Windows 开发回退: loopback TCP (强制 127.0.0.1)
+  tcp_host: 127.0.0.1
+  tcp_port: 47650

@@ -1,0 +1,22 @@
+# 模板: 由 scripts/install_service.sh 生成实际 unit (占位符替换)
+# @MAIN_BIN@: 安装时探测 (优先 build-pi-ai/holopet_ai, 回退 build-ai/holopet_ai)
+[Unit]
+Description=HoloPet Desktop Pet
+After=display-manager.service holopet-ai-worker.service
+Wants=holopet-ai-worker.service
+# R8_R4_R3_R4_R5_R3: 常驻闭环 — 图形会话晚于 multi-user 就绪, 默认
+# 启动限次 (5 次/10s) 会在 X 未就绪时把服务打进 failed; kiosk 模式无上限
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=@APP_USER@
+WorkingDirectory=@PROJECT_DIR@
+EnvironmentFile=/etc/holopet/holopet.env
+ExecStart=@MAIN_BIN@ --fullscreen --worker-uds /run/holopet/agent.sock
+Restart=always
+RestartSec=3
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,2 @@
+# 火山流式 ASR WebSocket 客户端依赖（固定版本；BSD-3-Clause）
+websockets==14.1

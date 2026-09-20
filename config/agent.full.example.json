@@ -1,0 +1,60 @@
+{
+  "provider": "openai_compatible",
+  "base_url": "https://api.deepseek.com/v1",
+  "model": "deepseek-v4-pro",
+  "api_key_env_name": "HOLOPET_API_KEY",
+  "fast_llm": {
+    "provider": "openai_compatible",
+    "base_url": "https://api.deepseek.com/v1",
+    "model": "deepseek-v4-flash",
+    "api_key_env_name": "HOLOPET_API_KEY"
+  },
+  "strong_llm": {
+    "provider": "openai_compatible",
+    "base_url": "https://api.deepseek.com/v1",
+    "model": "deepseek-v4-pro",
+    "api_key_env_name": "HOLOPET_API_KEY"
+  },
+  "local_llm": {
+    "provider": "openai_compatible",
+    "base_url": "http://127.0.0.1:8080/v1",
+    "model": "qwen2.5-1.5b-instruct-q4_k_m",
+    "api_key_env_name": "HOLOPET_LOCAL_LLM_KEY",
+    "request_timeout_ms": 90000,
+    "max_output_tokens": 200
+  },
+  "text_only": false,
+  "audio_capture": {
+    "provider": "alsa",
+    "device": "plughw:CARD=Device,DEV=0",
+    "sample_rate": 16000,
+    "bit_depth": 16,
+    "channels": 1,
+    "max_record_seconds": 15,
+    "max_audio_bytes": 1048576
+  },
+  "asr": {
+    "provider": "openai_compatible",
+    "base_url": "https://example.invalid/v1",
+    "model": "configured-at-runtime",
+    "api_key_env_name": "HOLOPET_ASR_API_KEY",
+    "request_timeout_ms": 60000
+  },
+  "tts": {
+    "provider": "openai_compatible",
+    "base_url": "https://example.invalid/v1",
+    "model": "configured-at-runtime",
+    "voice": "configured-at-runtime",
+    "api_key_env_name": "HOLOPET_TTS_API_KEY",
+    "request_timeout_ms": 60000,
+    "response_format": "wav"
+  },
+  "audio_playback": {
+    "provider": "alsa",
+    "device": "plughw:CARD=Device,DEV=0"
+  },
+  "max_tool_rounds": 4,
+  "max_tools_per_round": 4,
+  "max_total_tool_exec": 8,
+  "max_fixup_requests": 1
+}

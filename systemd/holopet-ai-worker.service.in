@@ -1,0 +1,26 @@
+# 模板: 由 scripts/install_service.sh 生成实际 unit (占位符替换)
+# 不硬编码 User=pi / /home/pi/HoloPet
+[Unit]
+Description=HoloPet AI Worker (STT/LLM/TTS provider bridge)
+After=network.target
+# R8_R4_R3_R4_R5_R3: 放宽启动限次 (默认 5/10s 在启动期瞬时连败即 failed)
+StartLimitIntervalSec=120
+StartLimitBurst=20
+
+[Service]
+Type=simple
+User=@APP_USER@
+WorkingDirectory=@PROJECT_DIR@
+EnvironmentFile=/etc/holopet/holopet.env
+Environment=PYTHONPATH=@PROJECT_DIR@/agent
+ExecStart=@PYTHON_BIN@ -m holopet_agentd --config /etc/holopet/agent.json --uds /run/holopet/agent.sock
+RuntimeDirectory=holopet
+RuntimeDirectoryMode=0750
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=10
+# 安全: 无外部端口; 密钥来自 EnvironmentFile (600)
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

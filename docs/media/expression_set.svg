@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">HoloPet 九种表情</title>
+  <desc id="desc">黑底蓝色的开心、惊讶、馋、为难、无语、喜悦、生气、疑问和可爱表情</desc>
+  <rect width="1200" height="900" fill="#000"/>
+  <text x="600" y="64" text-anchor="middle" fill="#40A0FF" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="42" font-weight="600">HoloPet Expression Set</text>
+
+  <g stroke="#40A0FF" fill="#40A0FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 开心 -->
+    <g transform="translate(200 190)">
+      <ellipse cx="-62" cy="-22" rx="28" ry="38"/><ellipse cx="62" cy="-22" rx="28" ry="38"/>
+      <path d="M-45 70 Q0 98 45 70" fill="none"/>
+    </g>
+    <!-- 惊讶 -->
+    <g transform="translate(600 190)">
+      <ellipse cx="-62" cy="-25" rx="28" ry="48"/><ellipse cx="62" cy="-25" rx="28" ry="48"/>
+      <ellipse cx="0" cy="76" rx="14" ry="11"/>
+    </g>
+    <!-- 馋 -->
+    <g transform="translate(1000 190)">
+      <ellipse cx="-62" cy="-22" rx="28" ry="36"/><ellipse cx="62" cy="-22" rx="28" ry="36"/>
+      <path d="M-52 70 L-26 82 L0 70 L26 82 L52 70" fill="none"/>
+    </g>
+    <!-- 为难 -->
+    <g transform="translate(200 455)">
+      <ellipse cx="-62" cy="-22" rx="22" ry="48"/><ellipse cx="62" cy="-22" rx="22" ry="48"/>
+      <path d="M-42 80 Q0 58 42 80" fill="none"/>
+    </g>
+    <!-- 无语 -->
+    <g transform="translate(600 455)">
+      <ellipse cx="-62" cy="-22" rx="28" ry="35"/><ellipse cx="62" cy="-22" rx="28" ry="35"/>
+      <line x1="-34" y1="76" x2="34" y2="76"/>
+    </g>
+    <!-- 喜悦 -->
+    <g transform="translate(1000 455)">
+      <ellipse cx="-62" cy="-22" rx="28" ry="36"/>
+      <line x1="34" y1="-22" x2="90" y2="-22"/>
+      <path d="M-45 70 Q0 104 45 70" fill="none"/>
+    </g>
+    <!-- 生气 -->
+    <g transform="translate(200 720)">
+      <ellipse cx="-62" cy="-22" rx="30" ry="24"/><ellipse cx="62" cy="-22" rx="30" ry="24"/>
+      <path d="M-42 82 Q0 55 42 82" fill="none"/>
+    </g>
+    <!-- 疑问 -->
+    <g transform="translate(600 720)">
+      <ellipse cx="-62" cy="-22" rx="28" ry="39"/><ellipse cx="62" cy="-22" rx="28" ry="39"/>
+      <ellipse cx="0" cy="76" rx="11" ry="8"/>
+      <path d="M104 -82 Q135 -110 157 -86 Q172 -66 146 -48 L136 -32 L136 -18" fill="none"/>
+      <circle cx="136" cy="2" r="5"/>
+    </g>
+    <!-- 可爱 -->
+    <g transform="translate(1000 720)">
+      <ellipse cx="-62" cy="-22" rx="31" ry="42"/><ellipse cx="62" cy="-22" rx="31" ry="42"/>
+      <path d="M-38 72 Q0 94 38 72" fill="none"/>
+    </g>
+  </g>
+
+  <g fill="#2080D8" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" text-anchor="middle">
+    <text x="200" y="330">开心 / Happy</text><text x="600" y="330">惊讶 / Surprised</text><text x="1000" y="330">馋 / Craving</text>
+    <text x="200" y="595">为难 / Concerned</text><text x="600" y="595">无语 / Speechless</text><text x="1000" y="595">喜悦 / Joy</text>
+    <text x="200" y="860">生气 / Angry</text><text x="600" y="860">疑问 / Curious</text><text x="1000" y="860">可爱 / Cute</text>
+  </g>
+</svg>

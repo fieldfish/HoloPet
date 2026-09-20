@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">HoloPet 方形功能菜单</title>
+  <desc id="desc">黑色背景、蓝色细线边框的五项列表菜单</desc>
+  <rect width="800" height="800" fill="#000"/>
+  <g fill="none" stroke="#40A0FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="42" y="42" width="716" height="716" rx="34"/>
+    <rect x="116" y="248" width="552" height="88" rx="22" stroke-width="4"/>
+    <line x1="712" y1="210" x2="712" y2="638" stroke="#2080D8" stroke-width="3"/>
+    <line x1="712" y1="300" x2="712" y2="392" stroke-width="10"/>
+
+    <circle cx="190" cy="205" r="27"/>
+    <line x1="190" y1="205" x2="190" y2="185"/>
+    <line x1="190" y1="205" x2="207" y2="216"/>
+
+    <circle cx="190" cy="292" r="27"/>
+    <line x1="190" y1="292" x2="190" y2="270"/>
+    <line x1="179" y1="255" x2="201" y2="255"/>
+
+    <path d="M163 392 Q163 358 190 358 Q217 358 217 392 L224 411 H156 Z"/>
+    <path d="M182 417 Q190 428 198 417"/>
+
+    <rect x="163" y="455" width="54" height="58" rx="8"/>
+    <line x1="176" y1="472" x2="204" y2="472"/>
+    <line x1="176" y1="486" x2="204" y2="486"/>
+    <line x1="176" y1="500" x2="199" y2="500"/>
+
+    <rect x="164" y="557" width="52" height="52" rx="10"/>
+    <line x1="177" y1="548" x2="177" y2="557"/>
+    <line x1="190" y1="548" x2="190" y2="557"/>
+    <line x1="203" y1="548" x2="203" y2="557"/>
+    <circle cx="181" cy="582" r="3" fill="#40A0FF"/>
+    <circle cx="199" cy="582" r="3" fill="#40A0FF"/>
+    <path d="M180 594 Q190 601 200 594"/>
+  </g>
+
+  <g fill="#40A0FF" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+    <text x="400" y="125" text-anchor="middle" font-size="54" font-weight="600">功能菜单</text>
+    <text x="680" y="122" text-anchor="end" font-size="26" fill="#2080D8">2/5</text>
+    <text x="250" y="220" font-size="38">时钟</text>
+    <text x="250" y="307" font-size="42" font-weight="600">定时器</text>
+    <text x="250" y="408" font-size="38">闹钟</text>
+    <text x="250" y="497" font-size="38">便签</text>
+    <text x="250" y="595" font-size="38">模型模式</text>
+    <text x="400" y="704" text-anchor="middle" font-size="24" fill="#2080D8">旋转选择 · 短按确认 · 长按返回</text>
+  </g>
+</svg>

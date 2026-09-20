@@ -1,0 +1,67 @@
+# Build output
+/build*/
+/out/
+/.cache/
+CMakeCache.txt
+CMakeFiles/
+Testing/
+*.obj
+*.o
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Local runtime data
+.env
+*.local.env
+config/agent.local.json
+*.sqlite
+*.sqlite3
+*.db
+*.wav
+*.pcm
+*.mp3
+*.flac
+evidence/
+audit/
+worklog/
+logs/
+
+# Credentials and private material
+*.pem
+*.p12
+*.pfx
+*.key
+id_rsa*
+
+# Models
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.gguf
+*.safetensors
+
+# Editors and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Release archives
+*.zip
+*.tar
+*.tar.gz
+SHA256SUMS.txt

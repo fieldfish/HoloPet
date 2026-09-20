@@ -1,0 +1,30 @@
+# providers.yaml — Provider 字段示例（运行时使用 JSON 配置）
+# schema-only: documented fields, not loaded by the current runtime.
+#
+# 示例文件: 不含真实 key。所有 api_key_env_name 只写环境变量名;
+# agentd 运行时从对应环境变量读取, 禁止把 token 写进任何配置文件。
+#
+# Provider 抽象: AsrProvider / TtsProvider / LlmProvider，接口位于
+# agent/holopet_agentd/providers/。
+
+llm:
+  # 本地/远端由路由器决定
+  provider: fake                  # fake | openai_compatible
+  model: holopet-default          # 模型名不得硬编码进业务逻辑
+  base_url: ""                    # 例: https://api.example.com/v1
+  api_key_env_name: HOLOPET_API_KEY
+  connect_timeout_ms: 5000
+  request_timeout_ms: 30000
+  max_output_tokens: 256
+
+asr:
+  provider: fake                  # fake | azure_speech | whisper_cpp | remote
+  api_key_env_name: HOLOPET_ASR_API_KEY
+  language: zh-CN
+
+tts:
+  provider: fake                  # fake | azure_tts | gpt_sovits (LAN HTTP)
+  voice: default
+  api_key_env_name: HOLOPET_TTS_API_KEY
+  # GPT-SoVITS 跑在 LAN PC/NAS/Cloud, Pi 只调 HTTP 取音频 (总规范 §7)
+  gpt_sovits_base_url: ""
