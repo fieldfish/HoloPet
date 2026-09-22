@@ -14,7 +14,7 @@ HoloPet is an open-source desktop companion built for Raspberry Pi 5. It combine
 
 Current public version: **v0.9.0 Public Preview**
 
-![HoloPet compact-base V3.1 assembly preview](mechanical/compact_base_v3_1/preview/assembly_with_components.png)
+![HoloPet compact-base V4 assembly preview](mechanical/compact_base_v4/preview/assembly_with_components.png)
 
 ## Highlights
 
@@ -25,7 +25,7 @@ Current public version: **v0.9.0 Public Preview**
 - **Square list menu:** clock, timer, alarm, notes, and model mode, operated through EC11 rotation, short press, and long press.
 - **Cloud and local models:** OpenAI-compatible endpoints, a DeepSeek configuration example, and local OpenAI-compatible services.
 - **Voice pipeline:** ALSA capture/playback, Volcengine streaming ASR, and OpenAI-compatible ASR/TTS adapters.
-- **Compact mechanical design V3:** 126 mm main-body outer diameter (about 128.5 mm locally at the knob boss), with a round display, Raspberry Pi 5, two speakers, a 70 mm microphone/audio assembly plus 10 mm cable-bend reserve at each end, rotary control, and glass-dome collar.
+- **Compact mechanical design V4:** 142 mm main-body outer diameter with a round display, Raspberry Pi 5, two speakers, a 70 mm microphone/audio assembly plus 10 mm cable-bend reserve at each end, a through-bore rotary knob, and a glass-dome collar.
 
 ## AI Agent core
 
@@ -84,7 +84,7 @@ See [Architecture](docs/ARCHITECTURE.md) for the C++/Python responsibility bound
 | Compact-base CAD/STL | Parametric export and mesh checks passed |
 | Physical assembly and optical result | **WAITING** for first-article fit and projection inspection |
 
-The project deliberately separates code-level validation, real-device validation, and physical/mechanical validation. See [Mechanical design](mechanical/compact_base_v3_1/README.md) for dimensions and printing boundaries; V2/V3 remain available as historical baselines.
+The project deliberately separates code-level validation, real-device validation, and physical/mechanical validation. See [Mechanical design](mechanical/compact_base_v4/README.md). V3 and V3.1 failed first-article checks and must not be printed again.
 
 ## Repository layout
 
@@ -96,7 +96,7 @@ config/                      Credential-free example configuration
 scripts/                     Build, deployment, service, and local-model scripts
 systemd/                     Raspberry Pi systemd service templates
 tests/                       C++ and protocol tests
-mechanical/compact_base_v3_1/Current parametric enclosure and printable STL files (V2/V3 historical baselines)
+mechanical/compact_base_v4/  Current corrective candidate and fit coupons (V3/V3.1 rejected)
 docs/                        Architecture, UI, hardware, and privacy documentation
 ```
 
@@ -153,7 +153,7 @@ See [Privacy and data boundaries](docs/PRIVACY.md) and the [Security policy](SEC
 
 ## Mechanical printing
 
-Printable parts are under `mechanical/compact_base_v3_1/stl/`. Print `fit_test/screen_body_fit_coupon.stl` first to verify the display, main body, and upper collar before ordering the complete set.
+Printable parts are under `mechanical/compact_base_v4/stl/`. Both `fit_test/screen_body_fit_coupon.stl` and `fit_test/speaker_fit_coupon.stl` must pass real-part checks before ordering the complete set.
 
 Reference assembly STL files illustrate the relationship between the display, Raspberry Pi, audio interface, speakers, rotary control, and glass dome. They are **not printable parts and must not be sent to a printing vendor as production files**.
 
